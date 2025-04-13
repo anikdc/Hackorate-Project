@@ -72,7 +72,7 @@ export default function VideoCarousel() {
   useEffect(() => {
     const interval = setInterval(() => {
       setWordIndex((prev) => (prev + 1) % currentVideo.words.length);
-    }, 2000);
+    }, 2000); // Ensure sync with word rotation
     return () => clearInterval(interval);
   }, [index]);
 
@@ -136,12 +136,20 @@ export default function VideoCarousel() {
 
       {/* Navigation Arrows */}
       <div className="absolute top-1/2 left-4 transform -translate-y-1/2 z-20">
-        <button onClick={prevSlide} className="text-white text-3xl p-2 bg-black/50 rounded-full hover:bg-black/75 transition duration-200">
+        <button
+          onClick={prevSlide}
+          className="text-white text-3xl p-2 bg-black/50 rounded-full hover:bg-black/75 transition duration-200"
+          aria-label="Previous Slide"
+        >
           <FiArrowLeft />
         </button>
       </div>
       <div className="absolute top-1/2 right-4 transform -translate-y-1/2 z-20">
-        <button onClick={nextSlide} className="text-white text-3xl p-2 bg-black/50 rounded-full hover:bg-black/75 transition duration-200">
+        <button
+          onClick={nextSlide}
+          className="text-white text-3xl p-2 bg-black/50 rounded-full hover:bg-black/75 transition duration-200"
+          aria-label="Next Slide"
+        >
           <FiArrowRight />
         </button>
       </div>

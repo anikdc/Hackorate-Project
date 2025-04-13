@@ -57,7 +57,7 @@ const HeroSection = () => {
     },
   ];
 
-  // Create an array of rotating words for each game
+  // Call useRotatingWords for each game before the map loop
   const gameWithWords = games.map((game) => ({
     ...game,
     word: useRotatingWords(game.rotating, 2000),

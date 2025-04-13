@@ -78,7 +78,7 @@ export default function ContactUs() {
         {/* Success Message */}
         {isSent && (
           <p className="mt-6 text-green-400 text-center text-lg font-medium">
-            ✅ Message sent successfully! We'll get back to you soon.
+            ✅ Message sent successfully! we&rsquo;ll get back to you soon.
           </p>
         )}
       </div>
