@@ -38,8 +38,7 @@ export default function ContactUs() {
           Contact Us
         </h2>
         <p className="text-gray-300 text-center mb-12 max-w-xl mx-auto">
-          Got questions, feedback, or want to collaborate? Drop us a message —
-          we’d love to hear from you.
+          Got questions, feedback, or want to collaborate? Drop us a message &mdash; we&rsquo;d love to hear from you.
         </p>
 
         {/* Contact Form */}

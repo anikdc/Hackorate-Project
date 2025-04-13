@@ -57,6 +57,12 @@ const HeroSection = () => {
     },
   ];
 
+  // Create an array of rotating words for each game
+  const gameWithWords = games.map((game) => ({
+    ...game,
+    word: useRotatingWords(game.rotating, 2000),
+  }));
+
   const pay = async (gameTitle, amount) => {
     const username = "exampleUser"; // Example username, you can fetch dynamically
     const paymentform = {
@@ -116,8 +122,7 @@ const HeroSection = () => {
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-12">
-        {games.map((game, index) => {
-          const word = useRotatingWords(game.rotating, 2000);
+        {gameWithWords.map((game, index) => {
           return (
             <motion.div
               key={index}
@@ -132,13 +137,13 @@ const HeroSection = () => {
                 <h2 className="text-3xl md:text-4xl font-bold">
                   {game.title}{" "}
                   <motion.span
-                    key={word}
+                    key={game.word}
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
                     className="bg-gradient-to-r from-pink-500 to-cyan-400 bg-clip-text text-transparent"
                   >
-                    {word}
+                    {game.word}
                   </motion.span>
                 </h2>
                 <p className="text-md md:text-lg text-gray-300 max-w-md">{game.description}</p>
